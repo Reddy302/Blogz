@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
         <h1>Add a Blog Entry</h1>
-        <form action="/newpost" method='POST'>
+        <form action="/newpost" method='POST' style="display:inline-block;">
             <label>
                 Title for your new blog:
                 <br>
-                <input type="text" name='title'/>
+                <input type="text" name='blog_title'/>
             </label>
             <br><br><br>
             <label>
@@ -14,7 +14,7 @@
                 <textarea rows="5" name='body'></textarea>
             </label>
             <br><br><br>
-            <input type="submit" value='Add Blog'/>
+            <input type="submit" value='Add Entry'/>
         </form>
 
 {% endblock %}

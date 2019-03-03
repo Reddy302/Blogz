@@ -11,12 +11,7 @@
         {% else %}
             <ul>
                 {% for blog in blogs %}
-                <li>{{blog.blog_title}}<br>{{blog.body}}
-                    <!-- <form method="POST" action="/delete-task" style="display:inline-block;">
-                        <input type="hidden" name="blog-id" value="{{blog.id}}"/>
-                        <input type="submit" value="Add Entry"/>
-                    </form> -->
-                </li>
+                <li>{{blog.blog_title}}<br>{{blog.body}}</li>
                 <hr />
                 {% endfor %}
             </ul>

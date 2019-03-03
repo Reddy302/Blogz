@@ -25,32 +25,28 @@ def index():
 
 @app.route('/blog', methods=['POST', 'GET'])
 def blog():
-    if request.method == 'POST':
-            blog_title = request.form['blog_title']
-            new_blog = Blog(blog_title, body)
-            db.session.add(new_blog)
-            db.session.commit()
-
-    blogs = Blog.query.all()
+    if request.method == 'GET':
+        blogs = Blog.query.all()
     return render_template('blog.html', title="Build a Blog", blogs=blogs)
     
 
 @app.route('/newpost', methods=['POST', 'GET'])
 def newpost():
     if request.method == 'GET':
-        # TODO render template and un-indent the return statement
         return render_template('newpost.html', title="Add a Blog Entry")
+    else:
+        blog_title = request.form['blog_title']
+        body = request.form['body']
+        new_blog = Blog(blog_title, body)
+        db.session.add(new_blog)
+        db.session.commit()
+        return redirect('/single')
 
 
-# @app.route('/delete-task', methods=['POST'])
-# def delete_task():
-#     task_id = int(request.form['task-id'])
-#     task = Task.query.get(task_id)
-#     task.completed = True
-#     db.session.add(task)
-#     db.session.commit()
-
-#     return redirect('/')
+@app.route('/single', methods=['GET'])
+def single():
+    
+    return render_template('single.html', title={{blog_title}})
 
 
 if __name__ == '__main__':
