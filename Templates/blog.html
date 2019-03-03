@@ -9,12 +9,13 @@
         <p>No blogs yet</p>
         
         {% else %}
-            <ul>
+
                 {% for blog in blogs %}
-                <li>{{blog.blog_title}}<br>{{blog.body}}</li>
-                <hr />
+                    <a href="{{url_for('single', blog_id=blog.id)}}"><h2>{{blog.blog_title}}</h2></a>
+                    <p>{{blog.body}}</p>
+                    <hr />
                 {% endfor %}
-            </ul>
+
 
         {% endif %}
 
