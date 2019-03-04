@@ -11,7 +11,7 @@
         {% else %}
 
                 {% for blog in blogs %}
-                    <a href="{{url_for('single', blog_id=blog.id)}}"><h2>{{blog.blog_title}}</h2></a>
+                    <a href="{{url_for('blog', id=blog.id)}}"><h2>{{blog.blog_title}}</h2></a>
                     <p>{{blog.body}}</p>
                     <hr />
                 {% endfor %}
