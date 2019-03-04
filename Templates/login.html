@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <h1>Login</h1>
+        <form method="POST">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="username">Username</label>
+                        </td>
+                        <td>
+                            <input id="username" name="username" type="text" value='{{username}}' style="display:inline" autofocus/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pass">Password</label>
+                        </td>
+                        <td>
+                            <input id="pass" name="password" type="password" value='{{password}}'/>
+                         </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input name="submit" type="submit" value='Submit'/>
+        </form>
+        <p>Don't have an account? <a href='/signup'>Create one!</a></p>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+        <h1>blog posts!</h1>
+
+        {% for blog in blogs %}
+            {% if user in users %}
+                <h2><a href="{{url_for('singleUser', user=user.username)}}">{{blog.blog_title}}</a></h2>
+                <p>{{blog.body}}</p>
+            {% endif %}
+        {% endif %}
+
+{% endblock %}

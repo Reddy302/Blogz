@@ -5,27 +5,33 @@
             .error {
                 color: red;
             }
-            h1 {
-                text-align: center;
-            }
         </style>
         <title>{{title}}</title>        
     </head>
 <body>
-
     <div>
-        <a href='/blog'>Main Blog Page</a>
-        &nbsp;
-        &nbsp;
-        <a href='/newpost' style="display:inline-block;">Add a Blog Entry</a>
+        <div>
+            <a href='/'>home</a>
+            &nbsp;
+            &nbsp;
+            <a href='/newpost' style="display:inline-block;">all posts</a>
+            &nbsp;
+            &nbsp;
+            <a href='/newpost' style="display:inline-block;">new post</a>
+                </li>
+        </div>
+        <div align="right">
+            <a href='/login'>login</a>
+            &nbsp;
+            &nbsp;
+            <a href='/logout' style="display:inline-block;">log out</a>
+        </div>
     </div>
 
     {% with messages = get_flashed_messages(with_categories=True) %}
-        <ul>
         {% for category,message in messages %}
-            <li class="{{category}}">{{message}}</li>
+            <p class="{{category}}">{{message}}</p>
         {% endfor %}
-        </ul>
     {% endwith %}
 
     {% block content %}
